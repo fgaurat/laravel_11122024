@@ -1,0 +1,70 @@
+  964  sail add redis
+  965  sail add 
+  966  php artisan sail:add
+  986  sail start
+ 9901  composer require laravel/sail --dev
+ 9902  php artisan sail:install
+ 9903  sailup
+ 9942  sail artisan make:test ArticleTest
+ 9943  sail artisan make:test ArticleModelTest --unit
+ 9944  sail artisan make:model Article -mcr
+ 9945  sail artisan make:model Category -mcr
+ 9947  sail artisan migrate
+ 9948  sail artisan migrate:refresh
+ 9949  sail artisan migrate:reset
+ 9950  sail stop
+ 9951  sail artisan make:factory ArticleFactory --model=Article
+ 9952  sail artisan make:factory CategoryFactory --model=Category
+ 9953  sail artisan routes
+ 9954  sail artisan
+ 9955  sail artisan route:list
+ 9958  sail composer require --dev laravel/dusk
+ 9959  sail artisan dusk:make ArticleFormTest
+ 9960  sail artisan dusk:install
+ 9961  sail artisan dusk
+ 9962  sail down
+ 9964  sail dusk
+ 9966  sail artisan  migrate:fresh --seed
+ 9967  sail composer require laravel/breeze --dev
+ 9968  sail artisan breeze:install livewire
+ 9969  sail npm
+ 9971  sail artisan make:component ArticlesList
+ 9972  sail
+ 9973  sail restart
+ 9974  sail artisan view:clear
+ 9975  sail npm run dev
+ 9987  sail up
+ 9988  sail test --help
+ 9989  sail test -v
+ 9990  sail test -vv
+ 9991  sail test --verbos
+ 9992  sail test --verbose
+ 9993  ./vendor/bin/sail test tests/Feature/ArticleTest.php --filter test_a_user_can_create_an_article_with_a_category\n\n
+ 9995  sail artisan migrate:fresh
+ 9996  sail test
+ 9997  sail artisan test --filter=ArticleTest --verbose
+ 9998  sail artisan test --filter=ArticleTest 
+ 9999  sail artisan test
+10026  composer require laravel/sail --dev
+10027  php artisan sail:install
+10028  sail up
+10029  sail artisan migrate
+10030  sail restart
+10031  sail stop
+10032  sail start
+10033  sail stop
+10034  sail start
+10035  sail --help
+10036  sail up
+10037  sail artisan make:model --help
+10038  sail artisan make:model Article -mcr
+10039  sail artisan make:model Category -mcr
+10040  sail artisan migrate
+10041  sail artisan migrate:reset
+10042  sail artisan migrate:fresh
+10043  sail test
+10044  sail artisan make:test CategoryModelTest --unit
+10046  alias | grep sail
+10047  sail test
+10049  sail artisan make:factory CategoryFactory --model=Category\n
+10050  history|grep sail
