@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
@@ -14,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('articles.index', ['articles' => Article::all()]);
+        $articles = Auth::user()->articles;
+        return view('articles.index', ['articles' => $articles]);
     }
 
     /**
@@ -71,6 +73,9 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        if(!Gate::allows('delete-article', $article)){
+            abort(403);
+        }
+        $article->delete();
     }
 }
