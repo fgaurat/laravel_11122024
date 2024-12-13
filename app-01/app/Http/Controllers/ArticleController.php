@@ -6,7 +6,9 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 class ArticleController extends Controller
 {
@@ -22,9 +24,23 @@ class ArticleController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        $categories = Category::all();
+        Log::debug($request->user());
+        if ($request->user()->cannot('create', Article::class)) {
+            abort(403);
+        }
+
+        // $categories = Category::all();
+
+        // $categories = Cache::rememberForever('categories', function () {
+        //     return Category::all();
+        // });
+        $categories = Cache::store('redis')->rememberForever('categories', function () {
+            return Category::all();
+        });
+
+
         return view('articles.create', compact('categories'));
     }
 
@@ -73,9 +89,10 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        if(!Gate::allows('delete-article', $article)){
+        if(!Gate::allows('delete-article')){
             abort(403);
         }
         $article->delete();
+        return redirect('/articles')->with('success', 'Article supprimé avec succès');
     }
 }

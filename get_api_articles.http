@@ -1,0 +1,15 @@
+GET http://localhost/api/articles HTTP/1.1
+Accept: application/json
+
+
+###
+
+GET http://localhost/api/articles/2 HTTP/1.1
+Accept: application/json
+
+
+###
+# Authenticated requests
+GET http://localhost/api/articles HTTP/1.1
+Accept: application/json
+Authorization: Bearer 1|3bXaPc0QV3bjUsKPTS4bJO5Zm951nSTT8np7rxWO9bfcdd6a
