@@ -1,0 +1,39 @@
+###
+# Login
+POST http://localhost/api/login HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "test01@example.com",
+  "password": "password"
+}
+
+###
+# List articles
+GET http://localhost/api/articles HTTP/1.1
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiYTliM2I0MTkxZDI1MWUwNmJjZjZjY2E3ZmI5YWYxNmQyN2JiYTViMGQwMTY2N2E1YjJmNDA3ZmU4ODVhOTk5M2UwM2MzMjA1ODRiOTU4NTgiLCJpYXQiOjE3MzQwODY5MjIuMTE4MjMsIm5iZiI6MTczNDA4NjkyMi4xMTgyMzEsImV4cCI6MTc2NTYyMjkyMi4xMTQ1ODMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.n-Dl2gPP2klYsVeWmEnc-weSArYgtd-I0xpHu_9Xl_p86a88V1aa_rGg7iAZGHpS4UdaQbsGNuLys5rrX6dCO353mRbFMbyHOc_dEcriC4UBYvNSw2jOAI6pT5nFcIvtBoT-pYVdn1TSx9tiRQSpjs0s-0I-pXIRnySLmdA_pRktKgBoTpk7jWreZ31b37BW1nmp-YGvOt5FshyVFj4B_C4tp_ugjC5QqmCoEX5Ty_0PV5-7Zj1UaAUvfAdO3I5tCZ825xuvuPfgiPw9kbm8uifPYMj2vavRSRF3r2l0uxO6fbTAqk0hGs8PrpGiW3_FlkWLMRe1u21xi1qzUQ4XwTBmYfx3Vz4FliHPFBDOwDCr2myK3RZSkd-XuGiLF_P7D2_ejixMPUqJvY95PNO1Nh1fqWx9Yrt9458_Vz0bcchGfhz1C27tm_Dnq4bNImjAN5Y_Xu28KdnIjp7JeOLwHOnSRQ_onnYy_QRX0wAw07Bqj8AzpL_L-W6I1vCH7ESPWWjb-avD9KAEDGyJBBrVNGvDWXGw1FZPVYIzoz4yrO3eNInfaa30vSghtBotgQfAhOvy3LrwdFjJamNPL2IufhjaYwhDPtr3glbHzXabzNufYezyRDNMpfTGiiEY-YNTDwFKZQ1WG5ZCm5S8PjSXn6IUxziRdtsZRS_nM3vipYI
+
+###
+# List clients
+POST http://localhost/oauth/token HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "grant_type": "password",
+    "client_id": 2,
+    "client_secret": "Am8PFGYaDCGZl9wvg4y3AO7TbfyBI3Gvu72M4G61",
+    "username": "test01@example.com",
+    "password": "password",
+    "scope": ""
+}
+
+
+###
+# List articles with oauth password
+GET http://localhost/api/articles HTTP/1.1
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZmE2MWJjZDhlZmQ0MTY4Yzc2ZjhlNTgzYzI1ZDJkMmVkNWEyNTliZGNmYjcyZDc3ODVkODNjZTI5MWE2NDg1OWI1OWUzMTAyZDY1YTg2YzEiLCJpYXQiOjE3MzQwODcxMjguNjk3MjUsIm5iZiI6MTczNDA4NzEyOC42OTcyNTEsImV4cCI6MTc2NTYyMzEyOC42ODQ0NTEsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.g-cxUI0pv7VtlKZv2KjGNB4-J3BrKKE0TygBpCqIcuPD9Ezc7j9vXq-aAc_VAIHjjbMuK1D8q2qdJtg7oWdi6ha0xG4QIitFoqGFt-HTUfUwJvi2QaUP-ESCWxzYmgAJJgKPdQqtub-JCO0nZIPxlJFJzrN9HmYL0rXyMZ9EpSmqCYLm-1DK_j1Q5tOGEYYg-XJuA0vs72kjfYpFCh0D2paUl4SUaUKHrEJfpiSZnGGphEyzy4ggQ4MXw32jf15ZrOgzOPJZClBA0RUlZF8Wwt_LvV4wRsckXW_SEGzvOX2pHRe27ZrRuJASGPb5hnbBwSbHgq0JvFQi3TLhvaz9-zxisJG683UEnSluh3Hk8yheiyZODw2xzWXomWDCHzV_8a48IyX_81FW_v0tFqFRIx8NLiflGe6bFKd4qefujbct9S_FVrC1acEc7ZK44e1Vadkh3rFWibuW2Bpz8TULU-z2IMTL70R4LTol-EtTVuCZULfjWxoJPSE2Qe8tUp3uBKEW-qa8g3uX3dHQ2JeX0Y4bszE5RJKfkr4Ol9uaeiEqkVmYObXX9AbRMqniYV7Gq2Ju9Htb1S9jhXOXSNWbgH7x1bhBOM9pLT2IzIjRQaO36UQAJb8CWCiJXX90muRNVss7mfU_BLiCbcP9jDczigd2zeDlZVQK8jE8Tx5E1nI
+
